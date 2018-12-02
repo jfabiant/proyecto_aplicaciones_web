@@ -4,9 +4,12 @@ import javax.persistence.Entity;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Table
@@ -39,12 +42,20 @@ public class Reserva {
 	public void setRes_id(int res_id) {
 		this.res_id = res_id;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cli_id")
+	
 	public int getCli_id() {
 		return cli_id;
 	}
 	public void setCli_id(int cli_id) {
 		this.cli_id = cli_id;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "des_id")
+	
 	public int getDes_id() {
 		return des_id;
 	}

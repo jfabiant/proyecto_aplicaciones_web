@@ -32,5 +32,8 @@ create table reserva (
 	res_fecha_reserva date
 );
 
+alter table reserva ADD FOREIGN KEY (cli_id) REFERENCES cliente(cli_id);
+
+alter table reserva ADD FOREIGN KEY (des_id) REFERENCES destino(des_id);
 
 
