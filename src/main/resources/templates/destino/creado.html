@@ -3,29 +3,19 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Notes</title>
+    <title>Proyecto Aplicaciones Web</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-    
+    <link type="text/css" href="/css/forms.css" rel="stylesheet" />
 </head>
 <body>
-   <div>
-		<a href="/destino/listar">atras</a>	
-	</div>
-    <table border="1">
-        <thead>
-            <tr>
-            	<th>id</th>
-	            <th>nombre</th>
-	            <th>precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td data-th-text="${destino.des_id}"></td>
-                <td data-th-text="${destino.des_nombre}"></td>
-                <td data-th-text="${destino.des_precio}"></td>
-            </tr>
-        </tbody>
-    </table>
+
+<div class="mensaje">
+<center>
+<h2>Destino registrado</h2> <br>
+
+<a href="/destino/listar"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/edit-copy-512.png" height="55px"> Listar</a>
+</center>
+</div>
+
 </body>
 </html>
