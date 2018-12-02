@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Notes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link type="text/css" href="/css/list.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-th-each="destino : ${destinos}">
+                <div class="tile">
+                    <div class="wrapper">
+                        <div class="header">
+                        	<span data-th-text="${destino.des_nombre}"></span>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <strong>Codigo</strong><span data-th-text="${destino.des_id}"></span>
+                            </div>
+
+                            <div>
+                                <strong>Precio</strong><span data-th-text="${destino.des_precio}"></span>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <a href="#" class="Cbtn Cbtn-primary" th:href="@{'/destino/editar/{id}'(id=${destino.des_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/view-refresh-512.png" height="20px"> Actualizar</a>
+                            <a href="#" class="Cbtn Cbtn-danger" th:href="@{'/destino/borrar/{id}'(id=${destino.des_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/dialog-error-512.png" height="20px"> Eliminar</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="container_buttons">
+       	<a href="/" style="color: #fff;"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/go-home-512.png" height="40px" > Regresar al inicio</a>	
+        <a href="/destino/nuevo" style="color: #fff;"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/list-add-512.png" height="55px"> Registrar un nuevo destino</a>
+        </div>
+    </div>
+</body>
+</html>
