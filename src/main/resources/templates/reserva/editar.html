@@ -15,7 +15,6 @@
     	
      <!--form class="form-group" action="/notesEdit" th:action="@{/notesEdit}" method="post"-->
     <form class="form-group" action="#" th:action="@{/reserva/actualizar}" th:object="${reserva}" method="post">
-            <input type="hidden" id="res_id" th:field="${reserva.res_id}" />
             <input type="hidden" id="cli_id" th:field="${reserva.cli_id}" />
             <input type="hidden" id="des_id" th:field="${reserva.des_id}" />
             <!--Colocar ComboBox Dinamico 
@@ -45,3 +44,4 @@
     </div>
 </body>
 </html>
+
