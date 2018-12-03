@@ -14,9 +14,9 @@
     <div>
      <!--form class="form-group" action="/notesEdit" th:action="@{/notesEdit}" method="post"-->
     <form class="form-group" action="#" th:action="@{/reserva/crear}" th:object="${reserva}" method="post">
-   			<input type="hidden" id="res_id" th:field="${reserva.res_id}" />
-            <input type="hidden" id="cli_id" th:field="${reserva.cli_id}" />
-            <input type="hidden" id="des_id" th:field="${reserva.des_id}" />
+   			<input type="text" id="res_id" th:field="${reserva.res_id}" />
+            <input type="text" id="cli_id" th:field="${reserva.cli_id}" />
+            <input type="text" id="des_id" th:field="${reserva.des_id}" />
             <!--Colocar ComboBox Dinamico 
                 (Select - Opcion - foreing key - Spring Tool Suite)
                  para los ID de cli_id y des_id-->
@@ -43,5 +43,44 @@
             <a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
     </form>
     </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Proyecto Aplicaciones Web</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link type="text/css" href="/css/forms.css" rel="stylesheet" />
+</head>
+<body>
+     <div class="container contact-form">
+            <div class="contact-image">
+                <img src="https://tickera-wpsalad.netdna-ssl.com/wp-content/themes/tickera/style/img/freebies/icons/events/25.png" alt="rocket_contact"/>
+            </div>
+            <form action="#" th:action="@{/reserva/crear}" th:object="${reserva}" method="post">
+                <h3>Registro de una reserva</h3>
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="des_nombre" id="destino_nombre" th:field="${destino.des_nombre}" required=""/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="des_precio" id="destino_precio" th:field="${destino.des_precio}"/>
+                        </div>
+                        <div class="form-group">
+                           <div class="btn-group">
+							  <a href="#" th:href="@{/destino/listar/}"><button type="button" class="btn btn-warning">Cancelar</button></a>
+							  <button type="submit" class="btn btn-primary">Registrar</button>
+							</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+</div>
 </body>
 </html>
