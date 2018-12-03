@@ -71,6 +71,8 @@ public class ReservaController {
 	@RequestMapping(value="/editar/{id}", method=RequestMethod.GET)
 	public String editar(@PathVariable("id") long id, ModelMap mp){
 	    mp.put("reserva", r.findById(id));
+	    mp.put("editacliente", clienteService.listar());
+	    mp.put("editadestino", destinoService.listar());
 	    return "reserva/editar";
 	}
 	 

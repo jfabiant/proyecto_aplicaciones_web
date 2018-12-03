@@ -14,9 +14,21 @@
     <div>
     	
      <!--form class="form-group" action="/notesEdit" th:action="@{/notesEdit}" method="post"-->
+     
     <form class="form-group" action="#" th:action="@{/reserva/actualizar}" th:object="${reserva}" method="post">
-            <input type="hidden" id="cli_id" th:field="${reserva.cli_id}" />
-            <input type="hidden" id="des_id" th:field="${reserva.des_id}" />
+   			 <div class="form-group">
+                <label for="res_asiento">Cliente Id</label>
+                 <select th:field="*{cli_id}" class="form-control">
+					<option th:each="i : ${editacliente}" th:value="${i.cli_id}" th:text="${i.cli_nombre}" ></option>
+           		</select>
+            </div>
+           <div class="form-group">
+                <label for="res_asiento">Destino Id</label>
+               	<select th:field="*{cli_id}" class="form-control">
+				<option th:each="i : ${editadestino}" th:value="${i.des_id}" th:text="${i.des_nombre}" ></option>
+           	</select>
+            </div>
+           
             <!--Colocar ComboBox Dinamico 
                 (Select - Opcion - foreing key - Spring Tool Suite)
                  para los ID de cli_id y des_id-->
