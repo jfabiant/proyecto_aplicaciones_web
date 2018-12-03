@@ -26,14 +26,14 @@ create table reserva (
 	res_id int(5) primary key auto_increment,
 	cli_id int(5),
 	des_id int(5),
+	precio double,
 	res_asiento int(2),
-	res_hora time,
-	res_fecha date,
-	res_fecha_reserva date
+	res_hora varchar(45),
+	res_fecha varchar(45),
+	res_fecha_reserva varchar(45)
 );
 
 alter table reserva ADD FOREIGN KEY (cli_id) REFERENCES cliente(cli_id);
-
 alter table reserva ADD FOREIGN KEY (des_id) REFERENCES destino(des_id);
 
 
