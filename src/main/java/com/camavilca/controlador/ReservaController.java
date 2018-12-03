@@ -38,15 +38,6 @@ public class ReservaController {
 		mp.put("reservas", r.findAll());
 		return "reserva/listar";
 	}
-	/*
-	@RequestMapping(value = "/nuevo")
-	public String nuevo (Model model, ModelMap mp) {
-		Reserva reserva = new Reserva();
-		model.addAttribute("clientes", clienteService.listar());
-		mp.put("reserva", reserva);
-		return "reserva/nuevo";
-	}
-	*/
 	
 	@RequestMapping(value = "/nuevo")
 	public String nuevo(Model mp) {
@@ -56,15 +47,6 @@ public class ReservaController {
 		return "reserva/nuevo";
 	}
 	
-	//public String formulario(Model model) {
-		//Venta venta= new Venta();
-		//model.addAttribute("venta", venta);
-		//model.addAttribute("productos", productoService.listar());
-		//model.addAttribute("clientes", clienteService.listar());
-		//model.addAttribute("btn", "Registrar Venta");
-		//return "ventaForm";
-	//}
-
 	@RequestMapping(value = "/crear", method = RequestMethod.POST)
 	public String crear(@Valid Reserva reserva, BindingResult bindingResult, ModelMap mp) {
 		if (bindingResult.hasErrors()) {
