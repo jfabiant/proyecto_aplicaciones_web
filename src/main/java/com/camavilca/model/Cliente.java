@@ -2,6 +2,7 @@ package com.camavilca.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ public class Cliente {
 	//Camavilca
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "cli_id")
 	private long cli_id;
 

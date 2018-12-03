@@ -11,29 +11,24 @@
 <body>
     <div class="container-fluid">
         <div class="row" >
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-th-each="cliente : ${clientes}">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" data-th-each="destino : ${destinos}">
                 <div class="tile">
                     <div class="wrapper">
                         <div class="header">
-                        	<span data-th-text="${cliente.cli_apellido}"></span>, <span data-th-text="${cliente.cli_nombre}"></span>
+                        	<span data-th-text="${destino.des_nombre}"></span>
                         </div>
                         <div class="stats">
-
                             <div>
-                                <strong>CÓDIGO</strong><span data-th-text="${cliente.cli_id}"></span>
+                                <strong>CÓDIGO</strong><span data-th-text="${destino.des_id}"></span>
                             </div>
 
                             <div>
-                                <strong>DNI</strong><span data-th-text="${cliente.cli_dni}"></span>
-                            </div>
-
-                            <div>
-                                <strong>RAZÓN SOCIAL</strong><span data-th-text="${cliente.cli_razon_social}"></span>
+                                <strong>PRECIO</strong><span data-th-text="${destino.des_precio}"></span>
                             </div>
                         </div>
                         <div class="footer">
-                            <a href="#" class="Cbtn Cbtn-primary" th:href="@{'/cliente/editar/{id}'(id=${cliente.cli_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/view-refresh-512.png" height="20px"> Actualizar</a>
-                            <a href="#" class="Cbtn Cbtn-danger" th:href="@{'/cliente/borrar/{id}'(id=${cliente.cli_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/dialog-error-512.png" height="20px"> Eliminar</a>
+                            <a href="#" class="Cbtn Cbtn-primary" th:href="@{'/destino/editar/{id}'(id=${destino.des_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/view-refresh-512.png" height="20px"> Actualizar</a>
+                            <a href="#" class="Cbtn Cbtn-danger" th:href="@{'/destino/borrar/{id}'(id=${destino.des_id})}" ><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/dialog-error-512.png" height="20px"> Eliminar</a>
                         </div>
                     </div>
                 </div> 
@@ -41,7 +36,7 @@
         </div>
         <div class="container_buttons">
        	<a href="/" style="color: #fff;"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/go-home-512.png" height="40px" > Regresar al inicio</a>	
-        <a href="/cliente/nuevo" style="color: #fff;"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/list-add-512.png" height="55px"> Registrar un cliente</a>
+        <a href="/destino/nuevo" style="color: #fff;"><img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/list-add-512.png" height="55px"> Registrar un nuevo destino</a>
         </div>
     </div>
 </body>

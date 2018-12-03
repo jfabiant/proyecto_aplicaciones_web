@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.camavilca.model.Reserva;
 import com.camavilca.repositorio.ReservaRepositorio;
 import com.camavilca.services.ClienteService;
+import com.camavilca.services.DestinoService;
 
 @Controller
 @RequestMapping("/reserva")
@@ -26,6 +27,10 @@ public class ReservaController {
 	ClienteService clienteService;
 	
 	@Autowired
+	@Qualifier("destino")
+	DestinoService destinoService;
+	
+	@Autowired
 	private ReservaRepositorio r;
 	
 	@RequestMapping(value = "/listar", method = RequestMethod.GET)
@@ -33,21 +38,24 @@ public class ReservaController {
 		mp.put("reservas", r.findAll());
 		return "reserva/listar";
 	}
-	
+	/*
 	@RequestMapping(value = "/nuevo")
-	public String nuevo (Model model) {
+	public String nuevo (Model model, ModelMap mp) {
 		Reserva reserva = new Reserva();
 		model.addAttribute("clientes", clienteService.listar());
-		model.addAttribute(reserva);
-		return "reserva/nuevo";
-	}
-	
-	/*
-	public String nuevo(ModelMap mp) {
-		mp.put("reserva", new Reserva());
+		mp.put("reserva", reserva);
 		return "reserva/nuevo";
 	}
 	*/
+	
+	@RequestMapping(value = "/nuevo")
+	public String nuevo(Model mp) {
+		mp.addAttribute("reserva", new Reserva());
+		mp.addAttribute("clientes", clienteService.listar());
+		mp.addAttribute("destinos", destinoService.listar());
+		return "reserva/nuevo";
+	}
+	
 	//public String formulario(Model model) {
 		//Venta venta= new Venta();
 		//model.addAttribute("venta", venta);
