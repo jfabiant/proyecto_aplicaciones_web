@@ -20,29 +20,60 @@ public class Reserva {
 	
 	@Id
 	@GeneratedValue
-	@Column
-	private int res_id;
+	@Column(name = "res_id")
+	private long res_id;
 	
-	@Column 
+	@Column(name = "cli_id")
 	private int cli_id;
-	@Column 
-	private int des_id;
-	@Column 
-	private int res_asiento;
-	@Column 
-	private Time res_hora;
-	@Column 
-	private Date res_fecha;
-	@Column 
-	private Date res_fecha_reserva;
 	
-	public int getRes_id() {
+	@Column(name = "des_id") 
+	private int des_id;
+	
+	@Column(name = "precio")
+	private double precio;
+	
+	@Column(name = "res_asiento")
+	private int res_asiento;
+	
+	@Column(name = "res_fecha") 
+	private String res_fecha;
+	
+	@Column(name = "res_fecha_reserva")
+	private String res_fecha_reserva;
+	
+	@Column(name = "res_hora")
+	private String res_hora;
+	
+	public Reserva(long res_id, int cli_id, int des_id, double precio, int res_asiento, String res_fecha,
+			String res_fecha_reserva, String res_hora) {
+		super();
+		this.res_id = res_id;
+		this.cli_id = cli_id;
+		this.des_id = des_id;
+		this.precio = precio;
+		this.res_asiento = res_asiento;
+		this.res_fecha = res_fecha;
+		this.res_fecha_reserva = res_fecha_reserva;
+		this.res_hora = res_hora;
+	}
+	
+	public Reserva() {
+		super();
+	}
+	
+	public long getRes_id() {
 		return res_id;
 	}
-	public void setRes_id(int res_id) {
+	public void setRes_id(long res_id) {
 		this.res_id = res_id;
 	}
 	
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "cli_id")
 	
@@ -68,30 +99,30 @@ public class Reserva {
 	public void setRes_asiento(int res_asiento) {
 		this.res_asiento = res_asiento;
 	}
-	public Time getRes_hora() {
+	public String getRes_hora() {
 		return res_hora;
 	}
-	public void setRes_hora(Time res_hora) {
+	public void setRes_hora(String res_hora) {
 		this.res_hora = res_hora;
 	}
-	public Date getRes_fecha() {
+	public String getRes_fecha() {
 		return res_fecha;
 	}
-	public void setRes_fecha(Date res_fecha) {
+	public void setRes_fecha(String res_fecha) {
 		this.res_fecha = res_fecha;
 	}
-	public Date getRes_fecha_reserva() {
+	public String getRes_fecha_reserva() {
 		return res_fecha_reserva;
 	}
-	public void setRes_fecha_reserva(Date res_fecha_reserva) {
+	public void setRes_fecha_reserva(String res_fecha_reserva) {
 		this.res_fecha_reserva = res_fecha_reserva;
 	}
 	
 	@Override
 	public String toString() {
-		return "Reserva [res_id=" + res_id + ", cli_id=" + cli_id + ", des_id=" + des_id + ", res_asiento="
-				+ res_asiento + ", res_hora=" + res_hora + ", res_fecha=" + res_fecha + ", res_fecha_reserva="
-				+ res_fecha_reserva + "]";
+		return "Reserva [res_id=" + res_id + ", cli_id=" + cli_id + ", des_id=" + des_id + ", precio=" + precio
+				+ ", res_asiento=" + res_asiento + ", res_fecha=" + res_fecha + ", res_fecha_reserva="
+				+ res_fecha_reserva + ", res_hora=" + res_hora + "]";
 	}
 	
 	

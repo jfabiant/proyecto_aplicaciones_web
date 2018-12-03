@@ -15,10 +15,12 @@
                 <th>Id-Reserva</th>
                 <th>Id-Cliente</th>
                 <th>Id-Destino</th>
+                <th>Precio</th>
 	            <th>Asiento Reservado</th>
-                <th>Hora Reservada</th>
-                <th>Fecha de Reservacion</th>
-                <th>Fecha de Reservada</th>
+	            <th>Fecha/Hora (actual):</th>
+                <th>Fecha Reservada</th>
+                <th>Hora de Reservacion</th>
+                
 	            <th></th>
 	            <th></th>
             </tr>
@@ -28,10 +30,11 @@
                 <td data-th-text="${reserva.res_id}"></td>
                 <td data-th-text="${reserva.cli_id}"></td>
                 <td data-th-text="${reserva.des_id}"></td>
+                <td data-th-text="${reserva.precio}"></td>
                 <td data-th-text="${reserva.res_asiento}"></td>
-                <td data-th-text="${reserva.res_hora}"></td>
                 <td data-th-text="${reserva.res_fecha}"></td>
-                <td data-th-text="${reserva.res_reserva}"></td>
+                <td data-th-text="${reserva.res_fecha_reserva}"></td>
+                <td data-th-text="${reserva.res_hora}"></td>
 				<td>
 				<a th:href="@{'/reserva/borrar/{id}'(id=${reserva.res_id})}">
 					<i class="fa fa-trash"></i>

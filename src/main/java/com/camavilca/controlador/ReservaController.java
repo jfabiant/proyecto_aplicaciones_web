@@ -3,7 +3,9 @@ package com.camavilca.controlador;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.camavilca.model.Reserva;
 import com.camavilca.repositorio.ReservaRepositorio;
+import com.camavilca.services.ClienteService;
 
 @Controller
 @RequestMapping("/reserva")
 public class ReservaController {
-
+	
+	@Autowired
+	@Qualifier("cliente")
+	ClienteService clienteService;
+	
 	@Autowired
 	private ReservaRepositorio r;
 	
@@ -26,12 +33,29 @@ public class ReservaController {
 		mp.put("reservas", r.findAll());
 		return "reserva/listar";
 	}
-//--------------------------
-	@RequestMapping(value = "/nuevo", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/nuevo")
+	public String nuevo (Model model) {
+		Reserva reserva = new Reserva();
+		model.addAttribute("clientes", clienteService.listar());
+		model.addAttribute(reserva);
+		return "reserva/nuevo";
+	}
+	
+	/*
 	public String nuevo(ModelMap mp) {
 		mp.put("reserva", new Reserva());
 		return "reserva/nuevo";
 	}
+	*/
+	//public String formulario(Model model) {
+		//Venta venta= new Venta();
+		//model.addAttribute("venta", venta);
+		//model.addAttribute("productos", productoService.listar());
+		//model.addAttribute("clientes", clienteService.listar());
+		//model.addAttribute("btn", "Registrar Venta");
+		//return "ventaForm";
+	//}
 
 	@RequestMapping(value = "/crear", method = RequestMethod.POST)
 	public String crear(@Valid Reserva reserva, BindingResult bindingResult, ModelMap mp) {
